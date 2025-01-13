@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eksplorasi Pariwisata Indonesia</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+    <script src="/static/js/script.js" defer></script>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="header-overlay">
+            <img src="/static/images/destinations/Bali.jpg" alt="Banner Pariwisata">
+            <h1>Eksplorasi Pariwisata Indonesia</h1>
+            <p>Jelajahi keindahan alam dan budaya Indonesia</p>
+        </div>
+    </header>
+
+    <!-- Navigasi -->
+    <nav>
+        <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/content">Destinasi</a></li>
+            <li><a href="/about">Tentang Kami</a></li>
+        </ul>
+    </nav>
+
+    <!-- Konten -->
+    <main>
+        <!-- Berita dan Informasi Terkini Section -->
+        {% if section == 'home' or section is none %}
+        <section id="home">
+            <h2>Berita dan Informasi Terkini</h2>
+            <p>Temukan destinasi wisata terbaru yang sedang populer di Indonesia. Dari pantai eksotis hingga pegunungan megah, kami hadir untuk memberikan informasi terbaik untuk petualangan Anda!</p>
+            <h3>Berita Terkini</h3>
+            <ul>
+                <li><strong>Festival Bali 2024: Kemeriahan Budaya Bali</strong> - Festival tahunan yang menampilkan seni dan budaya Bali akan segera dimulai di Ubud. Jangan lewatkan pengalaman budaya yang luar biasa ini!</li>
+                <li><strong>Raja Ampat Menjadi Salah Satu Tujuan Wisata Terpopuler</strong> - Keindahan alam bawah laut Raja Ampat semakin terkenal di kalangan wisatawan mancanegara. Perjalanan ke Raja Ampat semakin mudah dengan berbagai pilihan penerbangan langsung.</li>
+                <li><strong>Peningkatan Infrastruktur Pariwisata di Yogyakarta</strong> - Pemerintah setempat terus mengembangkan infrastruktur untuk meningkatkan kenyamanan wisatawan, termasuk renovasi area wisata Candi Borobudur dan Candi Prambanan.</li>
+                <li><strong>Lombok Menawarkan Paket Wisata Ramah Lingkungan</strong> - Lombok memperkenalkan paket wisata yang fokus pada pelestarian lingkungan dan keberlanjutan, yang memungkinkan wisatawan menikmati alam dengan cara yang lebih bertanggung jawab.</li>
+            </ul>
+        </section>
+        {% endif %}
+
+        <!-- Destinasi Wisata Unggulan Section -->
+        {% if section == 'content' %}
+        <section id="content">
+            <h2>Destinasi Wisata Unggulan</h2>
+            <table>
+                <tr>
+                    <th>Nama Tempat</th>
+                    <th>Deskripsi</th>
+                    <th>Foto</th>
+                </tr>
+                <tr>
+                    <td>Raja Ampat</td>
+                    <td>Keindahan bawah laut dan pemandangan eksotis di Raja Ampat yang menakjubkan.</td>
+                    <td><img src="/static/images/destinations/raja_ampat.jpg" alt="Raja Ampat"></td>
+                </tr>
+                <tr>
+                    <td>Bali</td>
+                    <td>Pulau Dewata dengan pantai, pura, dan keunikan budaya yang mendunia.</td>
+                    <td><img src="/static/images/destinations/Bali.jpg" alt="Bali"></td>
+                </tr>
+                <tr>
+                    <td>Yogyakarta</td>
+                    <td>Kota budaya dengan berbagai situs bersejarah, termasuk Candi Borobudur dan Prambanan.</td>
+                    <td><img src="/static/images/destinations/Jogja.jpg" alt="Yogyakarta"></td>
+                </tr>
+                <tr>
+                    <td>Lombok</td>
+                    <td>Destinasi yang terkenal dengan pantainya yang cantik dan Gili-gili yang menawan.</td>
+                    <td><img src="/static/images/destinations/lombok.jpeg" alt="Lombok"></td>
+                </tr>
+            </table>
+
+            <!-- Formulir Pemesanan Tiket -->
+            <h3>Pemesanan Tiket</h3>
+            <form method="POST" action="/book">
+                <div class="container mt-5">
+                    <h1>Tambah Pemesanan Baru</h1>
+
+                    <!-- Field untuk Nama -->
+                    <div class="mb-3">
+                        <label for="name" class="form-label">Nama:</label>
+                        <input type="text" class="form-control" id="name" name="name" required>
+                    </div>
+
+                    <!-- Field untuk Email -->
+                    <div class="mb-3">
+                        <label for="email" class="form-label">Email:</label>
+                        <input type="email" class="form-control" id="email" name="email" required>
+                    </div>
+                    
+                    <!-- Field untuk Tujuan -->
+                    <div class="mb-3">
+                        <label for="destination" class="form-label">Tujuan:</label>
+                        <select class="form-control" id="destination" name="destination" required>
+                            <option value="Raja Ampat">Raja Ampat</option>
+                            <option value="Bali">Bali</option>
+                            <option value="Yogyakarta">Yogyakarta</option>
+                            <option value="Lombok">Lombok</option>
+                        </select>
+                    </div>
+
+                    <!-- Field untuk Tanggal Pemesanan -->
+                    <div class="mb-3">
+                        <label for="booking_date" class="form-label">Tanggal Pemesanan:</label>
+                        <input type="date" class="form-control" id="booking_date" name="booking_date" required>
+                    </div>
+
+
+                    <!-- Tombol Submit -->
+                    <button type="submit" class="btn btn-primary">Pesan Sekarang</button>
+                </div>
+            </form>
+
+            <!-- Daftar Pemesanan -->
+            <h2>Daftar Pemesanan Anda</h2>
+            <table class="no-anim">
+                <thead>
+                    <tr>
+                        <th>ID Nama</th>
+                        <th>Email</th>
+                        <th>Destinasi</th>
+                        <th>Tanggal</th>
+                        <th>Status</th>
+                        <th>Aksi</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for booking in bookings %}
+                    <tr>
+                        <td>{{ booking.name }}</td>
+                        <td>{{ booking.email }}</td>
+                        <td>{{ booking.destination }}</td>
+                        <td>{{ booking.booking_date }}</td>
+                        <td class="status {% if booking.status == 'Pending' %}pending{% elif booking.status == 'Confirmed' %}confirmed{% elif booking.status == 'Cancelled' %}cancelled{% endif %}">
+                            {{ booking.status }}
+                        </td>
+                        <td>
+                            <a href="{{ url_for('edit', booking_id=booking.id) }}" class="edit-action">Edit</a> |
+                            <a href="{{ url_for('cancel', booking_id=booking.id) }}" class="cancel-action" onclick="return confirm('Apakah Anda yakin ingin membatalkan pemesanan?')">Batal</a>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </section>
+        {% endif %}
+
+        <!-- Tentang Kami Section -->
+        {% if section == 'about' %}
+        <section id="about">
+            <h2>Tentang Kami</h2>
+            <p>Kami hadir untuk memberikan informasi mengenai destinasi wisata terbaik di Indonesia. Hubungi kami untuk mendapatkan rekomendasi perjalanan terbaik sesuai kebutuhan Anda.</p>
+        </section>
+        {% endif %}
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 Eksplorasi Pariwisata Indonesia. All rights reserved.</p>
+    </footer>
+</body>
+</html>

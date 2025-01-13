@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Pemesanan</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container mt-5">
+        <h2 class="mb-4">Edit Pemesanan</h2>
+        <form method="POST">
+            <!-- Form Group untuk Nama -->
+            <div class="form-group">
+                <label for="name">Nama:</label>
+                <input 
+                    type="text" 
+                    class="form-control" 
+                    id="name" 
+                    name="name" 
+                    value="{{ booking.name }}" 
+                    required>
+            </div>
+            
+            <!-- Form Group untuk Email -->
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input 
+                    type="email" 
+                    class="form-control" 
+                    id="email" 
+                    name="email" 
+                    value="{{ booking.email }}" 
+                    required>
+            </div>
+
+            <!-- Form Group untuk Destinasi -->
+            <div class="form-group">
+                <label for="destination">Destinasi:</label>
+                <select 
+                    class="form-control custom-select" 
+                    id="destination" 
+                    name="destination" 
+                    required>
+                    <option value="Raja Ampat" {% if booking.destination == 'Raja Ampat' %}selected{% endif %}>
+                        Raja Ampat
+                    </option>
+                    <option value="Bali" {% if booking.destination == 'Bali' %}selected{% endif %}>
+                        Bali
+                    </option>
+                    <option value="Yogyakarta" {% if booking.destination == 'Yogyakarta' %}selected{% endif %}>
+                        Yogyakarta
+                    </option>
+                    <option value="Lombok" {% if booking.destination == 'Lombok' %}selected{% endif %}>
+                        Lombok
+                    </option>
+                </select>
+            </div>
+
+            <!-- Form Group untuk Tanggal Pemesanan -->
+            <div class="form-group">
+                <label for="booking_date">Tanggal Pemesanan:</label>
+                <input 
+                    type="date" 
+                    class="form-control" 
+                    id="booking_date" 
+                    name="booking_date" 
+                    value="{{ booking.booking_date }}" 
+                    required>
+            </div>
+
+            <!-- Tombol Simpan Perubahan -->
+            <button type="submit" class="btn btn-primary btn-block">Simpan Perubahan</button>
+
+            <!-- Tombol Kembali/Batal -->
+            <a href="/content" class="btn btn-secondary btn-block mt-3">Kembali</a> <!-- Tombol untuk kembali ke halaman daftar pemesanan -->
+        </form>
+    </div>
+
+    <!-- Bootstrap JS (Optional, for interactive features) -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

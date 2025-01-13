@@ -1,0 +1,414 @@
+/* Global Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body Styling */
+body {
+    font-family: 'Arial', sans-serif;
+    color: #333;
+    background-color: #f9f9f9;
+    line-height: 1.6;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+main {
+    padding: 20px;
+    max-width: 1000px;
+    margin: auto;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+    flex-grow: 1;
+    animation: fadeIn 1s ease-in-out;
+}
+
+/* Header Styling */
+header {
+    position: relative;
+    height: 300px;
+    color: white;
+    text-align: center;
+    background-color: #333;
+    overflow: hidden;
+}
+
+header img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0.4;
+}
+
+.header-overlay {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    padding: 20px;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+}
+
+.header-overlay h1 {
+    font-size: 3em;
+    margin-bottom: 10px;
+    font-weight: bold;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 10px 20px;
+    border-radius: 8px;
+    color: #fff;
+}
+
+.header-overlay p {
+    font-size: 1.2em;
+    max-width: 800px;
+    text-align: center;
+    line-height: 1.5;
+    padding: 0 20px;
+}
+
+/* Navigation Bar */
+nav {
+    background-color: #333;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    animation: slideDown 0.5s ease;
+}
+
+nav ul {
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+    list-style: none;
+}
+
+nav ul li {
+    margin: 0 15px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 8px 16px;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+}
+
+nav ul li a:hover {
+    background-color: #555;
+}
+
+/* Section Styling */
+section {
+    margin-bottom: 20px;
+    animation: fadeIn 1s ease-in-out;
+}
+
+/* Table Styling */
+table {
+    width: 100%;
+    margin-top: 10px;
+    border-collapse: collapse;
+    background-color: #fff;
+}
+
+table, th, td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: center;
+}
+
+th {
+    background-color: #4CAF50;
+    color: white;
+    text-align: center;
+}
+
+table img {
+    width: 100px;
+    border-radius: 5px;
+}
+
+table tr:hover {
+    background-color: #f1f1f1;
+    transform: scale(1.02);
+    transition: all 0.3s ease;
+}
+
+/* Form Styling */
+form {
+    margin-top: 20px;
+    padding: 15px;  /* Mengurangi padding untuk ukuran form lebih kecil */
+    background: #f7f7f7;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-gap: 15px; /* Mengurangi jarak antar elemen */
+}
+
+label {
+    font-weight: bold;
+    color: #555;
+}
+
+input, select, button {
+    padding: 10px;  /* Mengurangi padding pada input, select dan button */
+    border-radius: 5px;
+    font-size: 0.9em;  /* Mengurangi ukuran font */
+    border: 1px solid #ddd;
+}
+
+input:focus, select:focus {
+    border-color: #4CAF50;
+    outline: none;
+    box-shadow: 0 0 5px rgba(76, 175, 80, 0.5);
+}
+
+button {
+    padding: 12px 20px; /* Mengurangi padding pada button */
+    font-size: 1em;
+    background-color: #4CAF50;
+    color: white;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+button:hover {
+    background-color: #45a049;
+    transform: scale(1.05);
+}
+
+/* Ticket Booking Enhancements */
+h1, h3 {
+    font-size: 1.8em;
+    text-align: center;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.container {
+    max-width: 800px;
+    margin: auto;
+    padding: 20px;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.1);
+}
+
+.container h1 {
+    font-size: 2em;
+    color: #4CAF50;
+    margin-bottom: 15px;
+}
+
+/* Daftar Pemesanan Table Styling */
+.container table {
+    margin-top: 20px;
+    width: 100%;
+    border: 1px solid #ddd;
+    border-collapse: collapse;
+    background-color: #fff;
+    text-align: left;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.container table th {
+    background-color: #4CAF50;
+    color: white;
+    font-weight: bold;
+    text-align: center;
+    padding: 10px;
+}
+
+.container table td {
+    padding: 10px;
+    text-align: center;
+}
+
+.container table tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.container table tr:hover {
+    background-color: #f1f1f1;
+    transition: background-color 0.3s ease;
+}
+
+.container table td.status {
+    font-weight: bold;
+    padding: 8px;
+    border-radius: 5px;
+    text-transform: uppercase;
+}
+
+.container table td.status.pending {
+    background-color: #ffcc00;
+    color: #fff;
+}
+
+.container table td.status.confirmed {
+    background-color: #4CAF50;
+    color: #fff;
+}
+
+.container table td.status.cancelled {
+    background-color: #f44336;
+    color: #fff;
+}
+
+/* Action Buttons */
+a.edit-action, a.cancel-action {
+    color: white;
+    text-decoration: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    font-weight: bold;
+    display: inline-block;
+    text-align: center;
+    transition: background-color 0.3s ease;
+}
+
+a.edit-action {
+    background-color: #007bff;
+}
+
+a.edit-action:hover {
+    background-color: #0056b3;
+}
+
+a.cancel-action {
+    background-color: #d9534f;
+}
+
+a.cancel-action:hover {
+    background-color: #c82333;
+}
+
+/* Footer Styling */
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 15px;
+    margin-top: 20px;
+    font-size: 0.9em;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideDown {
+    from {
+        transform: translateY(-100%);
+    }
+    to {
+        transform: translateY(0);
+    }
+}
+
+/* Responsif untuk perangkat mobile (lebar layar <= 768px) */
+@media (max-width: 768px) {
+    body {
+        font-size: 14px; /* Mengurangi ukuran font untuk layar kecil */
+    }
+
+    header h1 {
+        font-size: 2em; /* Ukuran judul header lebih kecil pada layar kecil */
+    }
+
+    header p {
+        font-size: 1em; /* Mengurangi ukuran font deskripsi di header */
+    }
+
+    nav ul {
+        flex-direction: column; /* Menata item menu vertikal pada layar kecil */
+        padding: 10px 0;
+    }
+
+    nav ul li {
+        margin: 5px 0;
+    }
+
+    /* Formulir lebih kecil */
+    form {
+        padding: 10px; /* Mengurangi padding form */
+        grid-gap: 10px; /* Mengurangi jarak antar elemen form */
+    }
+
+    input, select, button {
+        padding: 8px; /* Mengurangi padding input, select, dan button */
+        font-size: 0.9em; /* Menyesuaikan ukuran font */
+    }
+
+    /* Menyesuaikan gambar dalam tabel */
+    table img {
+        width: 80px; /* Menyesuaikan ukuran gambar di tabel */
+    }
+
+    /* Mengurangi ukuran header section */
+    .header-overlay h1 {
+        font-size: 2.5em;
+    }
+
+    /* Menyesuaikan tampilan tombol */
+    button {
+        padding: 10px 15px; /* Tombol lebih kecil di perangkat mobile */
+        font-size: 0.9em;
+    }
+
+    /* Memastikan tabel tidak terlalu lebar pada perangkat mobile */
+    table {
+        width: 100%;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch; /* Scroll horizontal untuk tabel di mobile */
+    }
+
+    /* Memastikan kolom tabel tidak terlalu rapat */
+    table th, table td {
+        padding: 8px; /* Padding lebih kecil di dalam tabel */
+    }
+}
+
+/* Responsif untuk perangkat lebih kecil (lebar layar <= 480px) */
+@media (max-width: 480px) {
+    body {
+        font-size: 12px; /* Menurunkan ukuran font pada ponsel yang lebih kecil */
+    }
+
+    header h1 {
+        font-size: 1.8em; /* Ukuran judul semakin kecil */
+    }
+
+    header p {
+        font-size: 0.9em; /* Ukuran teks di header lebih kecil */
+    }
+
+    /* Memperbesar tombol untuk lebih mudah diklik */
+    button {
+        padding: 12px 20px;
+        font-size: 1em;
+    }
+}
